@@ -1,0 +1,22 @@
+# Elm generated files
+elm-stuff/
+elm.json
+
+# Elm test generated files
+elm-test/
+
+# Elm package manager files
+elm-package.json
+elm-package.lock
+
+# Compiled JavaScript files
+dist/
+
+# Editor and IDE files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Build artifacts
+build/
