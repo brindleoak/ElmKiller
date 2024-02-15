@@ -2,7 +2,7 @@ module Killer exposing (..)
 
 import Array exposing (Array, get, set)
 import Csv exposing (rulesFile)
-import Dict exposing (Dict, fromList)
+import Dict exposing (Dict)
 import Html exposing (Html, a, i, text)
 import List exposing (map, range)
 import List.Extra exposing (andThen, elemIndex)
@@ -44,7 +44,7 @@ processRulesCsv csv =
     csv
         |> String.lines
         |> List.map (String.split ",")
-        |> List.map (List.map toInt)
+        |> List.map(List.map toInt)
         |> andThen
             (\el ->
                 tl el
@@ -86,15 +86,14 @@ recursiveCheck ( solved, board ) rules =
     case elemIndex 0 (Array.toList board) of
         Just i ->
             let
+                getRule rules_ =
+                    rules_ |> Dict.get i |> Maybe.withDefault []
+
+                getCell pos =
+                    get pos board |> Maybe.withDefault 0
                 validAttempt : Int -> Bool
                 validAttempt m =
-                    let
-                        getRule rules_ =
-                            rules_ |> Dict.get i |> Maybe.withDefault []
 
-                        getCell pos =
-                            get pos board |> Maybe.withDefault 0
-                    in
                     not
                         (relatedCells
                             |> getRule

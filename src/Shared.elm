@@ -1,6 +1,5 @@
 module Shared exposing (..)
 
-import Array exposing (Array)
 
 
 hd : List Int -> Int
