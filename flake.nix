@@ -13,7 +13,10 @@
     {
       devShells = forEachSupportedSystem ({ pkgs }: {
         default = pkgs.mkShell {
-          packages = (with pkgs.elmPackages; [ elm ]) ++ (with pkgs; [ elm2nix ]);
+          packages = (with pkgs.elmPackages; [ 
+            elm
+            elm-format
+          ]) ++ (with pkgs; [ elm2nix ]);
         };
       });
     };

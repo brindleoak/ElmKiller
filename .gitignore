@@ -5,3 +5,5 @@ repl-temp-*
 # generated js
 *.js
 elm-stuff/0.19.1/d.dat
+.direnv
+elm-stuff

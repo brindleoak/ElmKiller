@@ -44,7 +44,7 @@ processRulesCsv csv =
     csv
         |> String.lines
         |> List.map (String.split ",")
-        |> List.map(List.map toInt)
+        |> List.map (List.map toInt)
         |> andThen
             (\el ->
                 tl el
@@ -91,9 +91,9 @@ recursiveCheck ( solved, board ) rules =
 
                 getCell pos =
                     get pos board |> Maybe.withDefault 0
+
                 validAttempt : Int -> Bool
                 validAttempt m =
-
                     not
                         (relatedCells
                             |> getRule
